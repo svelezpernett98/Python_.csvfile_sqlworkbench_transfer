@@ -53,6 +53,10 @@ try:
         #------------PARA AGREGAR UNA LLAVE PRIMARIA AUTOINCREMENTAL SI NECESITO UNA:
         cursor.execute("ALTER TABLE table5 ADD test_pk int AUTO_INCREMENT PRIMARY KEY;")
         
+        #------------PARA JUNTAR DOS O MAS COLUMNAS Y AÑADIRLAS COMO UNA NUEVA COLUMNA A LA TABLA:
+        cursor.execute("ALTER TABLE table5 ADD COLUMN combinada VARCHAR(50);")
+        cursor.execute("UPDATE yourtable SET combined = CONCAT(hour, ' - ', order_name, ', ', finantial_status);")
+        
         conn.commit()
                 
 except Error as e:
